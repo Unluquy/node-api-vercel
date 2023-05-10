@@ -1,6 +1,7 @@
 //const app = require('./app');
 const config = require('./config/config.js');
-
+const express = require('express');
+const cors = require('cors');
 const PORT = 5000
 
 console.log(`NODE_ENV=${config.NODE_ENV}`);
@@ -18,8 +19,8 @@ const app = express();
 app.use(cors());
 
 //middleware
-app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+//app.use(express.json());
+//app.use(express.urlencoded({extended:false}));
 
 //Define Routes
 app.use('/api/user', require('./routes/user'));
