@@ -1,20 +1,7 @@
-// index.js
-const express = require('express')
+const app = require('./app');
+const config = require('./config/config.js');
 
-const app = express()
-const PORT = 4000
+const PORT = 5000
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT} `)
-})
-
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
-
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
-
-// Export the Express API
-module.exports = app
+console.log(`NODE_ENV=${config.NODE_ENV}`);
+app.listen(PORT, () => console.log('Server started on port ' + PORT));
